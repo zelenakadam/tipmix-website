@@ -1,15 +1,196 @@
-<!DOCTYPE html>
+html = """<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tipmix Profi – Sportfogadási tippek</title>
-  <meta name="description" content="Prémium sportfogadási tippek, valós statisztikák és átlátható eredmények. 18+" />
+  <title>KDBO – Krucsai Dávid Best Odds</title>
+  <meta name="description" content="KDBO – Krucsai Dávid Best Odds. Adatvezérelt sportfogadási tippek, átlátható eredményekkel. 18+" />
+  <style>
+    :root{
+      --bg:#0b0f17; --card:#111827; --muted:#9fb0c3; --text:#e7effa;
+      --brand:#33d69f; --accent:#5aa7ff; --danger:#ff5a7a;
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,92vw);margin:0 auto}
+    header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(10px);background:rgba(11,15,23,.6);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:center;padding:14px 0}
+    .logoMark{width:54px;height:54px;border-radius:14px;background:conic-gradient(from 210deg at 50% 50%, var(--brand), var(--accent));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logoText{font-weight:900;letter-spacing:1px}
+    .logoLetters{font-weight:900;font-size:18px;color:#04121a;background:rgba(255,255,255,.85);padding:6px 8px;border-radius:10px}
+    .hero{padding:64px 0 32px;display:grid;grid-template-columns:1fr;gap:22px;place-items:center;text-align:center}
+    h1{font-size:clamp(28px,6vw,52px);line-height:1.08;margin:10px 0}
+    p.lead{font-size:clamp(16px,2.3vw,20px);color:var(--muted)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .cta{display:flex;gap:10px;margin-top:18px;justify-content:center;flex-wrap:wrap}
+    input[type=email]{flex:1;min-width:240px;background:#0f141f;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 14px;color:var(--text)}
+    button{border:0;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer}
+    .btn-brand{background:linear-gradient(135deg,var(--brand),var(--accent));color:#03141b}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+    .badge{padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-size:12px}
+    section{padding:50px 0}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.grid3{grid-template-columns:1fr}}
+    h2{font-size:28px;margin:0 0 14px;text-align:center}
+    .muted{color:var(--muted);text-align:center}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price{font-size:34px;font-weight:800}
+    .list{margin:12px 0 0;padding:0;list-style:none}
+    .list li{display:flex;gap:8px;align-items:flex-start;margin:10px 0}
+    .highlight{outline:2px solid var(--brand)}
+    .notice{font-size:12px;color:var(--muted)}
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
+    .footergrid{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+    .age{display:flex;gap:10px;align-items:center}
+    .switch{position:relative;display:inline-block;width:44px;height:24px}
+    .switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#223047;border-radius:999px;transition:.2s}
+    .slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.2s}
+    input:checked + .slider{background:var(--brand)}
+    input:checked + .slider:before{transform:translateX(20px)}
+    .gdpr{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
+  </style>
 </head>
-<body style="font-family:Arial, sans-serif; background:#0b0f17; color:white; text-align:center; padding:40px;">
-  <h1>Tipmix Profi</h1>
-  <p>Adatvezérelt sportfogadási tippek és statisztikák.</p>
-  <p>Ez egy bemutató oldal – az élő verziót a GitHub Pages szolgáltatja.</p>
-  <p style="color:#33d69f;">18+ Felelősségteljes játék!</p>
+<body>
+  <header>
+    <div class="container nav">
+      <div style="display:grid;place-items:center;gap:8px">
+        <div class="logoMark">
+          <span class="logoLetters">KDBO</span>
+        </div>
+        <div class="logoText">Krucsai Dávid Best Odds</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>Adatvezérelt sportfogadási tippek – átláthatóan</h1>
+      <p class="lead">Valós statisztikák, teljesítményriport és felelős bankroll menedzsment. Nem ígérünk csodát – rendszert adunk a döntéseidhez. 18+</p>
+      <div class="cta">
+        <input type="email" id="email" placeholder="Email címed">
+        <button class="btn-brand" id="ctaBtn">Kérem a napi tippeket</button>
+      </div>
+      <div class="badges">
+        <span class="badge">Valós ROI riport</span>
+        <span class="badge">Bankroll menedzsment</span>
+        <span class="badge">Push értesítések</span>
+        <span class="badge">Fogadóiroda-agnosztikus</span>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Mit kapsz a KDBO-tól?</h2>
+      <p class="muted">Transzparens, adatvezérelt megközelítés – kezdőknek és haladóknak.</p>
+      <div class="grid3">
+        <div class="card" style="padding:18px">
+          <h3>Valós statisztikák</h3>
+          <p class="muted" style="text-align:left">xG, formagörbék, sérülésjelentések és piacmozgások egy helyen.</p>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Bankroll menedzsment</h3>
+          <p class="muted" style="text-align:left">Egyszerű stake-javaslatok Kelly és flat stake szerint.</p>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Élő értesítések</h3>
+          <p class="muted" style="text-align:left">Azonnali push/sms/email, amikor érték jelenik meg egy piacon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="arak">
+      <h2>Előfizetési csomagok</h2>
+      <div class="pricing">
+        <div class="card" style="padding:22px">
+          <h3>Kis csomag</h3>
+          <div class="price">990 Ft / hó</div>
+          <ul class="list">
+            <li>• Napi 2–3 mix</li>
+            <li>• Alap statisztikák</li>
+            <li>• Email értesítés</li>
+          </ul>
+        </div>
+        <div class="card highlight" style="padding:22px">
+          <h3>Közepes csomag</h3>
+          <div class="price">2 990 Ft / hó</div>
+          <ul class="list">
+            <li>• Napi 5–6 mix</li>
+            <li>• Prémium statok, xG</li>
+            <li>• Push értesítések</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:22px">
+          <h3>Nagy csomag</h3>
+          <div class="price">7 990 Ft / hó</div>
+          <ul class="list">
+            <li>• Napi 15 mix</li>
+            <li>• Live value jelzések</li>
+            <li>• 1:1 konzultáció</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Eredmények & hitelesség</h2>
+      <div class="grid3">
+        <div class="card" style="padding:18px">
+          <h3>Utolsó 30 nap</h3>
+          <p class="muted">ROI: <strong style="color:var(--brand)">+7.8%</strong> | Találati arány: 56% | Fogadások: 124</p>
+          <p class="notice">A múltbeli teljesítmény nem garancia a jövőre.</p>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Átlátható napló</h3>
+          <p class="muted">Minden tipp időbélyeggel, ajánlott odds-szal és lezárással.</p>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Kockázati edukáció</h3>
+          <p class="muted">Felelősségteljes játék: veszteség-limit és szünet funkciók.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="card gdpr">
+        <div>
+          <strong>Sütik kezelése</strong>
+          <p class="notice">Csak a működéshez szükséges sütiket használjuk. Analitikát külön engedéllyel indítunk.</p>
+        </div>
+        <div>
+          <label class="switch">
+            <input id="analyticsToggle" type="checkbox" aria-label="Analitikai sütik engedélyezése">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footergrid">
+      <div class="age">
+        <div class="badge">18+</div>
+        <span>Felelősségteljes játék. Ha segítségre van szükséged, keresd fel a <a href="https://www.oktatasportal.hu/felelos-jatek" target="_blank" rel="noopener">segélyvonalakat</a>.</span>
+      </div>
+      <div>
+        © <span id="y"></span> KDBO • <a href="#">Impresszum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const yearEl=document.getElementById('y'); if(yearEl) yearEl.textContent=new Date().getFullYear();
+    const emailInput=document.getElementById('email');
+    const ctaBtn=document.getElementById('ctaBtn');
+    ctaBtn?.addEventListener('click',()=>{
+      alert('Köszönjük! Hamarosan küldjük az első tippeket. (Demó)');
+    });
+    document.getElementById('analyticsToggle')?.addEventListener('change',e=>{
+      if(e.target.checked){ console.log('Analitika engedélyezve (demo)'); }
+      else{ console.log('Analitika tiltva (demo)'); }
+    });
+  </script>
 </body>
-</html>
+</html>"""
